@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="우리들의 독립 영화 웹진, CUE — 리뷰, 인터뷰, 그리고 칼럼">
-    <title>CUE | 독립 영화 웹진</title>
+    <title>CUE | 인터뷰, 설계부터 작성까지. 현장 르포 기자의 시선</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -941,8 +941,29 @@
             .footer-links { grid-template-columns: 1fr; }
         }
     </style>
+    <style>
+        .breadcrumb{text-align:left;font-size:0.85rem;color:var(--text-muted);padding:0 0 24px;font-family:var(--font-sans);letter-spacing:0.5px}
+        .breadcrumb a{border-bottom:1px solid transparent;transition:border-color .3s ease,color .3s ease}
+        .breadcrumb a:hover{border-color:var(--text-main);color:var(--text-main)}
+        .page-layout{display:grid;grid-template-columns:2.3fr 1fr;gap:4vw;padding:var(--spacing-xl) 0}
+        .pill-badge{display:inline-block;padding:4px 12px;border:1px solid var(--border-color);border-radius:20px;font-size:0.75rem;font-weight:600;text-transform:uppercase;margin-right:8px}
+        .sidebar{position:sticky;top:100px}
+        .sidebar-widget{border:1px solid var(--border-color);padding:32px;margin-bottom:32px;background:var(--bg-light)}
+        .sidebar-widget-title{font-family:var(--font-serif);font-size:1.4rem;margin-bottom:24px;border-bottom:1px dashed var(--border-color);padding-bottom:16px}
+        .topic-tags{display:flex;flex-wrap:wrap;gap:8px}
+        .topic-tag{border:1px solid var(--border-color);padding:6px 16px;border-radius:30px;font-size:0.8rem;text-transform:uppercase;transition:all .3s ease}
+        .topic-tag:hover{background:var(--text-main);color:var(--bg-light)}
+        .dark-context .breadcrumb{color:var(--text-muted-dark)}
+        .dark-context .breadcrumb a:hover{border-color:#fff;color:#fff}
+        .dark-context .pill-badge{border-color:var(--border-color-dark)}
+        .dark-context .sidebar-widget{background:var(--bg-dark);border-color:var(--border-color-dark)}
+        .dark-context .sidebar-widget-title{border-color:var(--border-color-dark)}
+        .dark-context .topic-tag{border-color:var(--text-muted-dark);color:var(--text-muted-dark)}
+        .dark-context .topic-tag:hover{background:#fff;color:#000;border-color:#fff}
+        @media(max-width:1024px){.page-layout{grid-template-columns:1fr}.sidebar{position:static;margin-top:64px}}
+    </style>
 </head>
-<body>
+<body class="dark-context action-section">
 
     <!-- Noise Overlay -->
     <div class="noise-bg"></div>
@@ -982,277 +1003,46 @@
             <a href="action.html" class="mobile-nav-link">Action</a>
             <a href="cut.html" class="mobile-nav-link">Cut</a>
         </div>
-    </div>
-
-    <!-- Hero Section -->
-    <header class="hero" id="hero">
-        <div class="container">
-            <h1 class="hero-title" id="splitHeroText"></h1>
-            
-            <div class="film-strip" id="heroFilmStrip">
-                <div class="film-hole"></div><div class="film-hole"></div><div class="film-hole"></div>
-                <div class="film-hole"></div><div class="film-hole"></div><div class="film-hole"></div>
-                <div class="film-hole"></div><div class="film-hole"></div><div class="film-hole"></div>
-                <div class="film-hole"></div><div class="film-hole"></div><div class="film-hole"></div>
-                <div class="film-hole"></div><div class="film-hole"></div><div class="film-hole"></div>
-                <div class="film-hole"></div><div class="film-hole"></div><div class="film-hole"></div>
-                <div class="film-hole"></div><div class="film-hole"></div><div class="film-hole"></div>
-                <div class="film-hole"></div><div class="film-hole"></div><div class="film-hole"></div>
-                <div class="film-hole"></div><div class="film-hole"></div><div class="film-hole"></div>
+    <main class="container page-layout fade-up" style="padding-top: 120px;">
+        <article class="main-content dark-context" style="max-width: 800px;">
+            <div class="breadcrumb" style="text-align: left; padding: 0 0 24px;">
+                <a href="index.html">Home</a> &gt; <a href="action.html">Action</a> &gt; <span style="opacity: 0.6;">인터뷰</span>
             </div>
-            
-            <h2 class="hero-subtitle">우리들의 웹진 창간을 위하여</h2>
-            <p class="hero-desc">Dive into well-crafted stories, interviews, and guides designed to inform, inspire, and keep you updated with the latest in indie cinema.</p>
-        </div>
-    </header>
-
-    <!-- Highlight / Newsletter -->
-    <section class="highlight-section">
-        <div class="container highlight-grid">
-            <div class="newsletter-box fade-up">
-                <div class="stamp">CUE<br>EST.2026</div>
-                <h3 class="newsletter-title">Don't miss a thing</h3>
-                <p class="newsletter-desc">Subscribe to get updates straight to your inbox.</p>
-                <div class="input-group">
-                    <input type="email" placeholder="Enter your email">
-                    <button>SUBSCRIBE</button>
+            <h1 style="font-family: var(--font-serif); font-size: clamp(2.2rem, 4.5vw, 3.5rem); line-height: 1.2; margin-bottom: 24px; letter-spacing: -1px;">인터뷰, 설계부터 작성까지. 현장 르포 기자의 시선</h1>
+            <div style="display: flex; gap: 16px; align-items: center; margin-bottom: 48px; border-bottom: 1px dashed var(--border-color-dark); padding-bottom: 24px;">
+                <span class="pill-badge" style="color: var(--accent-yellow); border-color: var(--accent-yellow);">25 min read</span>
+                <span style="font-weight: 700; font-size: 0.9rem;">by 김유진</span>
+                <span style="font-size: 0.9rem; opacity: 0.5;">|</span>
+                <span style="font-size: 0.9rem; opacity: 0.6;">April 1, 2026</span>
+            </div>
+            <div style="width: 100%; aspect-ratio: 16/10; margin-bottom: 64px; border: 1px solid var(--border-color-dark); overflow: hidden;">
+                <img src="https://images.unsplash.com/photo-1550100136-e092101726f4?auto=format&fit=crop&q=80&w=1200" alt="Article" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <div class="article-body" style="font-size: 1.15rem; line-height: 1.9; font-weight: 400;">
+<p style="margin-bottom:24px;color:rgba(255,255,255,0.85)">좋은 인터뷰는 질문에서 시작되지 않는다. 그것은 상대방의 이야기를 듣고 싶은 진심에서 시작된다. 10년간 독립영화 현장을 취재해온 기자로서, 나는 인터뷰란 결국 '두 사람 사이에 흐르는 공기의 질'에 달려 있다고 믿게 되었다.</p>
+<h2 style="font-family:var(--font-sans);font-size:1.6rem;font-weight:700;margin:64px 0 24px;color:var(--accent-yellow)">질문은 설계한다, 답은 설계하지 않는다</h2>
+<p style="margin-bottom:24px;color:rgba(255,255,255,0.85)">인터뷰 전 나는 보통 50개 이상의 질문을 준비한다. 하지만 실제 인터뷰에서 사용하는 건 기껏해야 열 개 남짓이다. 나머지는 대화의 흐름 속에서 자연스럽게 태어나는 질문들로 채워진다. 미리 짜놓은 각본대로 진행되는 인터뷰는 기사가 될 수는 있어도, 글이 되기는 어렵다.</p>
+<blockquote style="border-left:2px solid var(--accent-yellow);padding-left:24px;margin:40px 0;font-family:var(--font-serif);font-size:1.3rem;font-style:italic;opacity:0.9">"사람의 마음을 여는 질문의 기술, 그리고 현장의 공기를 텍스트로 옮기는 방법에 대하여."</blockquote>
+<h2 style="font-family:var(--font-sans);font-size:1.6rem;font-weight:700;margin:64px 0 24px;color:var(--accent-yellow)">현장의 공기를 담는 글쓰기</h2>
+<p style="margin-bottom:24px;color:rgba(255,255,255,0.85)">녹음기의 음성을 텍스트로 옮기는 것은 인터뷰의 10%에 불과하다. 나머지 90%는 그 사람이 말할 때의 표정, 손짓, 침묵의 길이, 카페에 흐르던 음악, 창밖으로 보이던 풍경 — 이런 것들을 기억하고 문장 사이에 녹여내는 작업이다.</p>
+<p style="margin-bottom:24px;color:rgba(255,255,255,0.85)">독자는 인터뷰이의 말만 읽는 것이 아니다. 그 말이 탄생한 공간과 시간을 함께 경험하고 싶어 한다. 그래서 좋은 인터뷰 기사는 궁극적으로 '르포'에 가깝다.</p>
+            </div>
+            <div style="margin-top: 80px; padding-top: 40px; border-top: 1px solid var(--border-color-dark);">
+                <a href="action.html" style="display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-serif); font-style: italic; font-weight: 700; font-size: 1.1rem;">← Back to Action</a>
+            </div>
+        </article>
+        <aside class="sidebar dark-context">
+            <div class="sidebar-widget">
+                <h3 class="sidebar-widget-title">Explore Topics</h3>
+                <div class="topic-tags">
+                    <a href="ready.html" class="topic-tag">Reviews</a>
+                    <a href="action.html" class="topic-tag">Interviews</a>
+                    <a href="cut.html" class="topic-tag">Essays</a>
+                    <a href="#" class="topic-tag">Festivals</a>
                 </div>
             </div>
-            <div class="featured-article filter-blur fade-up delay-1">
-                <a href="ready_001.html" class="window-card">
-                    <div class="window-header">
-                        <span class="window-dots">○○○</span>
-                        <span class="window-badge" style="color: var(--text-muted); font-size: 0.7rem;">[NO. 001]</span>
-                    </div>
-                    <div style="display: flex; flex-direction: row; height: 100%;">
-                        <div class="card-img-wrapper" style="flex: 1.2; border-bottom: none; border-right: 1px solid var(--border-color);">
-                            <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&q=80&w=800" alt="Featured Article">
-                        </div>
-                        <div class="card-content" style="flex: 1; justify-content: center;">
-                            <div class="card-meta">
-                                <span style="background: var(--border-color); color: var(--bg-light); padding: 2px 8px; border-radius: 20px;">Featured</span> 
-                                <span class="meta-tag">리뷰</span> 
-                                <span>by 김유진</span>
-                            </div>
-                            <h3 class="card-title" style="font-size: 2rem;">&lt;콩나물&gt; 낮은 시선으로 확장되는 다채로운 골목길</h3>
-                            <p style="color: var(--text-muted); font-size: 0.95rem;">어린 아이의 눈높이에서 보여지는 세상은 얼마나 거대하고 놀라운가.</p>
-                            
-                            <span class="read-more">Read Full Story <span class="read-more-arrow">→</span></span>
-                        </div>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- READY Section -->
-    <section id="ready" class="section-padding">
-        <div class="container">
-            <div class="section-header border-bottom fade-up" style="padding-bottom: 24px;">
-                <div class="section-title-wrap">
-                    <h2 class="section-title"><span class="highlight">RE</span>ADY</h2>
-                </div>
-            </div>
-            
-            <div class="grid-2">
-                <!-- Card 1 -->
-                <a href="ready_002.html" class="window-card fade-up">
-                    <div class="window-header">
-                        <span class="window-dots">○○○</span>
-                        <span class="window-badge" style="color: var(--text-muted); font-size: 0.7rem;">[NO. 002]</span>
-                    </div>
-                    <div class="card-img-wrapper">
-                        <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&q=80&w=800" alt="Article 2">
-                    </div>
-                    <div class="card-content">
-                        <div class="card-meta">
-                            <span class="meta-tag">리뷰</span> <span>by 배준한</span> <span>12 min read</span>
-                        </div>
-                        <h3 class="card-title">&lt;갱년기 소녀 투쟁기&gt;<br>아직 젊고 싶다는 마음에 대하여</h3>
-                        <span class="read-more">Read Article <span class="read-more-arrow">→</span></span>
-                    </div>
-                </a>
-                
-                <!-- Card 2 -->
-                <a href="ready_003.html" class="window-card fade-up delay-1">
-                    <div class="window-header">
-                        <span class="window-dots">○○○</span>
-                        <span class="window-badge" style="color: var(--text-muted); font-size: 0.7rem;">[NO. 003]</span>
-                    </div>
-                    <div class="card-img-wrapper">
-                        <img src="https://images.unsplash.com/photo-1542204165-65bf26472b9b?auto=format&fit=crop&q=80&w=800" alt="Article 3">
-                    </div>
-                    <div class="card-content">
-                        <div class="card-meta">
-                            <span class="meta-tag">프리뷰</span> <span>by 이민지</span> <span>8 min read</span>
-                        </div>
-                        <h3 class="card-title">올해 독립영화제에서<br>놓치면 안 될 한국 영화 5선</h3>
-                        <span class="read-more">Read Article <span class="read-more-arrow">→</span></span>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- ACTION Section (Dark) -->
-    <section id="action" class="action-section section-padding dark-context">
-        <div class="container">
-            <div class="section-header border-bottom fade-up" style="border-color: rgba(255,255,255,0.1); padding-bottom: 24px;">
-                <div class="section-title-wrap">
-                    <h2 class="section-title">ACT<span class="highlight">IO</span>N</h2>
-                </div>
-            </div>
-            
-            <!-- Horizontal Highlight Card -->
-            <a href="action_004.html" class="window-card horizontal-card fade-up">
-                <div class="window-header" style="width: 100%; position: absolute; top:0; left:0; border-bottom: 1px dashed var(--border-color-dark); z-index: 10;">
-                    <span class="window-dots">○○○</span>
-                    <span class="window-badge" style="color: var(--text-muted-dark); font-size: 0.7rem;">[NO. 004]</span>
-                </div>
-                <!-- 윗부분 padding 상쇄용 오버레이 없음, 단순 패딩 적용 -->
-                <div class="card-img-wrapper" style="padding-top: 45px;">
-                    <img class="parallax-img" src="https://images.unsplash.com/photo-1550100136-e092101726f4?auto=format&fit=crop&q=80&w=1200" alt="Interview" style="transform: scale(1.1);">
-                </div>
-                <div class="card-content" style="padding-top: 60px;">
-                    <div class="card-meta">
-                        <span class="meta-tag">인터뷰</span> <span>by 김유진</span> <span>25 min read</span>
-                    </div>
-                    <h3 class="card-title" style="font-size: 2.8rem; margin-bottom: 24px;">인터뷰, 설계부터<br>작성까지. 현장 르포 기자의 시선</h3>
-                    <p style="color: var(--text-muted-dark); font-size: 1.1rem; line-height: 1.8;">
-                        사람의 마음을 여는 질문의 기술, 그리고 현장의 공기를 텍스트로 옮기는 방법에 대하여.
-                    </p>
-                    <span class="read-more">Read Interview <span class="read-more-arrow">→</span></span>
-                </div>
-            </a>
-            
-            <div class="grid-3">
-                <a href="action_005.html" class="window-card fade-up">
-                    <div class="window-header">
-                        <span class="window-dots">○○○</span>
-                        <span class="window-badge" style="color: var(--text-muted-dark); font-size: 0.7rem;">[NO. 005]</span>
-                    </div>
-                    <div class="card-img-wrapper" style="aspect-ratio: 1/1;">
-                        <img src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&q=80&w=600" alt="Action 1">
-                    </div>
-                    <div class="card-content">
-                        <div class="card-meta"><span class="meta-tag">현장</span> <span>by 박지훈</span></div>
-                        <h3 class="card-title">독립영화 제작기:<br>예산 0원으로 장편 찍기</h3>
-                    </div>
-                </a>
-                <a href="action_006.html" class="window-card fade-up delay-1">
-                    <div class="window-header">
-                        <span class="window-dots">○○○</span>
-                        <span class="window-badge" style="color: var(--text-muted-dark); font-size: 0.7rem;">[NO. 006]</span>
-                    </div>
-                    <div class="card-img-wrapper" style="aspect-ratio: 1/1;">
-                        <img src="https://images.unsplash.com/photo-1507676184212-be47a618e772?auto=format&fit=crop&q=80&w=600" alt="Action 2">
-                    </div>
-                    <div class="card-content">
-                        <div class="card-meta"><span class="meta-tag">인터뷰</span> <span>by 이서진</span></div>
-                        <h3 class="card-title">신인 감독 데뷔작 열전:<br>&lt;여름의 끝자락&gt;</h3>
-                    </div>
-                </a>
-                <a href="action_interview_001.html" class="window-card fade-up delay-2">
-                    <div class="window-header">
-                        <span class="window-dots">○○○</span>
-                        <span class="window-badge" style="color: var(--text-muted-dark); font-size: 0.7rem;">[NO. 007]</span>
-                    </div>
-                    <div class="card-img-wrapper" style="aspect-ratio: 1/1;">
-                        <img src="https://images.unsplash.com/photo-1540656247385-bd97836d50f8?auto=format&fit=crop&q=80&w=600" alt="Action 3">
-                    </div>
-                    <div class="card-content">
-                        <div class="card-meta"><span class="meta-tag">비하인드</span> <span>by 최동원</span></div>
-                        <h3 class="card-title">배우 최동원의<br>'표 값'에 대하여</h3>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- CUT Section -->
-    <section id="cut" class="section-padding">
-        <div class="container">
-            <div class="section-header border-bottom fade-up" style="padding-bottom: 24px;">
-                <div class="section-title-wrap">
-                    <h2 class="section-title">C<span class="highlight">UT</span></h2>
-                </div>
-            </div>
-            
-            <div class="grid-3">
-                <a href="cut_008.html" class="window-card fade-up">
-                    <div class="window-header">
-                        <span class="window-dots">○○○</span>
-                        <span class="window-badge" style="color: var(--text-muted); font-size: 0.7rem;">[NO. 008]</span>
-                    </div>
-                    <div class="card-content">
-                        <div class="card-meta"><span class="meta-tag">에세이</span> <span>by 한지민</span></div>
-                        <h3 class="card-title">엔드 크레딧이 올라가고 난 뒤의 적막함 그 아름다움에 대하여</h3>
-                        <p style="color: var(--text-muted); margin-top: auto; font-size: 0.95rem;">영화를 본다는 것은 때론 극장을 나서는 그 순간부터 다시 시작된다...</p>
-                        <span class="read-more" style="margin-top: 16px;">Read Essay <span class="read-more-arrow">→</span></span>
-                    </div>
-                </a>
-                <a href="cut_009.html" class="window-card fade-up delay-1">
-                    <div class="window-header">
-                        <span class="window-dots">○○○</span>
-                        <span class="window-badge" style="color: var(--text-muted); font-size: 0.7rem;">[NO. 009]</span>
-                    </div>
-                    <div class="card-content">
-                        <div class="card-meta"><span class="meta-tag">칼럼</span> <span>by 정우성</span></div>
-                        <h3 class="card-title">여성 서사, 트렌드를 넘어 장르로 정착하기까지</h3>
-                        <p style="color: var(--text-muted); margin-top: auto; font-size: 0.95rem;">최근 5년간 한국 독립영화계의 변화를 이끈 중심에는 늘 그녀들이 있었다...</p>
-                        <span class="read-more" style="margin-top: 16px;">Read Column <span class="read-more-arrow">→</span></span>
-                    </div>
-                </a>
-                <a href="cut_010.html" class="window-card fade-up delay-2">
-                    <div class="window-header">
-                        <span class="window-dots">○○○</span>
-                        <span class="window-badge" style="color: var(--text-muted); font-size: 0.7rem;">[NO. 010]</span>
-                    </div>
-                    <div class="card-content">
-                        <div class="card-meta"><span class="meta-tag">비평</span> <span>by 이동진</span></div>
-                        <h3 class="card-title">디지털 시대, 왜 우리는 여전히 필름의 질감을 그리워하는가</h3>
-                        <p style="color: var(--text-muted); margin-top: auto; font-size: 0.95rem;">완벽하게 매끄러운 픽셀들 사이에서 우리가 잃어버린 불완전의 미학...</p>
-                        <span class="read-more" style="margin-top: 16px;">Read Critique <span class="read-more-arrow">→</span></span>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Editors Section -->
-    <section class="editor-section section-padding">
-        <div class="container border-top fade-up" style="padding-top: var(--spacing-xl);">
-            <h2 class="section-title" style="font-size: clamp(2rem, 3.5vw, 3rem); text-transform: none; letter-spacing: 0;">클릭해서 우리의 자랑스런<br>에디터들을 확인해보세요</h2>
-            <p class="editor-subtitle" style="margin-top: 16px;">CUE 는 이런 사람들이 만듭니다</p>
-            
-            <div class="grid-3" style="margin-top: 80px;">
-                <div class="editor-card">
-                    <div class="editor-avatar">
-                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=200" alt="Editor">
-                    </div>
-                    <h4 class="editor-name">김유진</h4>
-                    <p class="editor-role">Founder & Editor-in-Chief</p>
-                </div>
-                <div class="editor-card" style="transition-delay: 0.1s;">
-                    <div class="editor-avatar">
-                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=200" alt="Editor">
-                    </div>
-                    <h4 class="editor-name">배준한</h4>
-                    <p class="editor-role">Senior Editor</p>
-                </div>
-                <div class="editor-card" style="transition-delay: 0.2s;">
-                    <div class="editor-avatar">
-                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=200" alt="Editor">
-                    </div>
-                    <h4 class="editor-name">이민지</h4>
-                    <p class="editor-role">Contributing Writer</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
+        </aside>
+    </main><footer>
         <div class="container">
             <div class="footer-cta fade-up">
                 <h2><span class="highlight">Never</span> miss an update</h2>
@@ -1417,4 +1207,5 @@
     </script>
 </body>
 </html>
+
 
