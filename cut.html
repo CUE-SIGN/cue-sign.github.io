@@ -941,6 +941,60 @@
             .footer-links { grid-template-columns: 1fr; }
         }
     </style>
+    <style>
+        .breadcrumb { text-align: center; font-size: 0.85rem; color: var(--text-muted); padding: 120px 0 24px; font-family: var(--font-sans); letter-spacing: 0.5px; }
+        .breadcrumb a { border-bottom: 1px solid transparent; transition: border-color 0.3s ease, color 0.3s ease; }
+        .breadcrumb a:hover { border-color: var(--text-main); color: var(--text-main); }
+        .dark-context .breadcrumb { color: var(--text-muted-dark); }
+        .dark-context .breadcrumb a:hover { border-color: #fff; color: #fff; }
+        
+        .category-hero { text-align: center; padding: 20px 0 80px; border-bottom: 1px solid var(--border-color); }
+        .dark-context .category-hero { border-color: var(--border-color-dark); }
+        
+        .page-layout { display: grid; grid-template-columns: 2.3fr 1fr; gap: 4vw; padding: var(--spacing-xl) 0; }
+        
+        .featured-card { display: flex; border: 1px solid var(--border-color); margin-bottom: 64px; background: var(--bg-light); text-decoration: none; color: inherit; position: relative; overflow: hidden; }
+        .featured-card::after { content: ''; position: absolute; top:0; left:0; right:0; bottom:0; background: rgba(255, 230, 0, 0); transition: background 0.4s; pointer-events: none; }
+        .featured-card:hover::after { background: rgba(255, 230, 0, 0.05); }
+        .featured-card:hover .featured-img img { transform: scale(1.05); }
+        
+        .featured-img { flex: 1.2; overflow: hidden; border-right: 1px solid var(--border-color); }
+        .featured-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s cubic-bezier(0.19, 1, 0.22, 1); }
+        
+        .featured-content { flex: 1; padding: 40px; display: flex; flex-direction: column; justify-content: center; }
+        .pill-badge { display: inline-block; padding: 4px 12px; border: 1px solid var(--border-color); border-radius: 20px; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; margin-right: 8px; }
+        .dark-context .pill-badge { border-color: var(--border-color-dark); }
+        
+        .article-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; }
+        
+        .sidebar { position: sticky; top: 100px; }
+        .sidebar-widget { border: 1px solid var(--border-color); padding: 32px; margin-bottom: 32px; background: var(--bg-light); }
+        .sidebar-widget-title { font-family: var(--font-serif); font-size: 1.4rem; margin-bottom: 24px; border-bottom: 1px dashed var(--border-color); padding-bottom: 16px; }
+        
+        .dark-context .featured-card, .dark-context .sidebar-widget { background: var(--bg-dark); border-color: var(--border-color-dark); }
+        .dark-context .featured-img { border-color: var(--border-color-dark); }
+        .dark-context .sidebar-widget-title { border-color: var(--border-color-dark); }
+        
+        .topic-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+        .topic-tag { border: 1px solid var(--border-color); padding: 6px 16px; border-radius: 30px; font-size: 0.8rem; text-transform: uppercase; transition: all 0.3s ease; }
+        .topic-tag:hover { background: var(--text-main); color: var(--bg-light); }
+        .dark-context .topic-tag { border-color: var(--text-muted-dark); color: var(--text-muted-dark); }
+        .dark-context .topic-tag:hover { background: #fff; color: #000; border-color: #fff; }
+        
+        @media (max-width: 1024px) {
+            .page-layout { grid-template-columns: 1fr; }
+            .sidebar { position: static; display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 64px; }
+            .sidebar-widget { margin-bottom: 0; }
+        }
+        @media (max-width: 768px) {
+            .featured-card { flex-direction: column; }
+            .featured-img { border-right: none; border-bottom: 1px solid var(--border-color); height: 300px; }
+            .dark-context .featured-img { border-color: var(--border-color-dark); }
+            .article-grid { grid-template-columns: 1fr; }
+            .sidebar { grid-template-columns: 1fr; gap: 24px; }
+            .featured-content { padding: 24px; }
+        }
+    </style>
 </head>
 <body>
 
@@ -982,91 +1036,124 @@
             <a href="action.html" class="mobile-nav-link">Action</a>
             <a href="cut.html" class="mobile-nav-link">Cut</a>
         </div>
+    <div class="breadcrumb fade-up">
+        <a href="index.html">Home</a> &gt; All blogs &gt; <span style="text-transform: capitalize;">Cut</span>
+    </div>
+
     <!-- Category Header -->
-    <header class="hero" style="padding: 160px 0 60px; text-align: left; border-bottom: none; background: none;">
+    <header class="category-hero fade-up">
         <div class="container">
-            <h1 class="hero-title" style="font-size: clamp(3rem, 8vw, 6rem); margin-bottom: 16px;">
+            <h1 class="section-title" style="font-size: clamp(3rem, 7vw, 5.5rem); letter-spacing: -1px; text-transform:none;">
                 <span class="highlight animated">Cu</span>t
             </h1>
-            <p class="hero-subtitle" style="opacity: 1; transform: translateY(0); max-width: 600px; margin: 0; font-family: var(--font-serif); font-style: italic;">
+            <p style="font-family: var(--font-serif); font-size: 1.2rem; margin-top: 16px; opacity: 0.8; font-style: italic;">
                 Essays, columns, and critical perspectives.
             </p>
         </div>
     </header>
 
-    <!-- Article Grid -->
-    <section class="section-padding" style="padding-top: 0;">
-        <div class="container">
-            <div class="grid-3" style="row-gap: 64px;">
-                <!-- Dummy Card 1 -->
-                <a href="#" class="window-card">
-                    <div class="window-header">
-                        <span class="window-dots">○○○</span>
-                        <span class="window-badge" style="color: var(--text-muted); font-size: 0.7rem;">[NEW]</span>
+    <!-- Page Layout -->
+    <section class="container page-layout">
+        <div class="main-content">
+            
+            <h2 style="font-family: var(--font-serif); font-size: 1.8rem; margin-bottom: 32px; border-bottom: 1px solid var(--border-color); padding-bottom: 16px;" class="fade-up">Featured Post</h2>
+            
+            <!-- Featured Article Wrapper -->
+            <a href="#" class="featured-card fade-up delay-1">
+                <div class="featured-img">
+                    <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&q=80&w=1200" alt="Featured Cover">
+                </div>
+                <div class="featured-content">
+                    <div style="margin-bottom: 16px;">
+                        <span class="pill-badge">Featured</span>
+                        <span class="meta-tag" style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase;">Cut</span>
                     </div>
-                    <div class="card-img-wrapper" style="aspect-ratio: 4/3;">
-                        <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&q=80&w=600" alt="Thumbnail">
+                    <h3 style="font-size: clamp(1.8rem, 3vw, 2.4rem); font-family: var(--font-sans); line-height: 1.3; margin-bottom: 24px; letter-spacing: -0.5px;">&lt;콩나물&gt; 낮은 시선으로 확장되는 다채로운 골목길</h3>
+                    <p style="margin-bottom: 32px; font-size: 1.05rem; opacity: 0.7; line-height: 1.7;">어린 아이의 눈높이에서 보여지는 세상은 얼마나 거대하고 놀라운가. 자본주의적 논리로 돌아가는 대형 상업영화에서는 결코 맛볼 수 없는 순수한 스크린 경험.</p>
+                    
+                    <div style="display: flex; align-items: center; justify-content: space-between; margin-top: auto; border-top: 1px dashed var(--border-color); padding-top: 16px;">
+                        <span style="font-weight: 700; font-size: 0.85rem;">by 에디터</span>
+                        <span style="font-size: 0.8rem; opacity: 0.6;">22 min read</span>
                     </div>
-                    <div class="card-content">
-                        <div class="card-meta"><span class="meta-tag">Cut</span> <span>by 에디터</span></div>
-                        <h3 class="card-title">이 주의 추천 독립영화: 새로운 시선의 발견</h3>
-                        <p style="color: var(--text-muted); margin-top: auto; font-size: 0.95rem;">이번 주 우리가 주목해야 할 작품들에 대한 심도 있는 리뷰.</p>
-                        <span class="read-more" style="margin-top: 16px;">Read More <span class="read-more-arrow">→</span></span>
-                    </div>
-                </a>
-                
-                <!-- Dummy Card 2 -->
-                <a href="#" class="window-card">
-                    <div class="window-header">
-                        <span class="window-dots">○○○</span>
-                        <span class="window-badge" style="color: var(--text-muted); font-size: 0.7rem;">[NEW]</span>
-                    </div>
-                    <div class="card-img-wrapper" style="aspect-ratio: 4/3;">
-                        <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&q=80&w=600" alt="Thumbnail">
-                    </div>
-                    <div class="card-content">
-                        <div class="card-meta"><span class="meta-tag">Cut</span> <span>by 에디터</span></div>
-                        <h3 class="card-title">작은 영화가 남기는 긴 여운에 관하여</h3>
-                        <p style="color: var(--text-muted); margin-top: auto; font-size: 0.95rem;">대자본 없이도 우리의 마음을 울리는 스크린 속 이야기들.</p>
-                        <span class="read-more" style="margin-top: 16px;">Read More <span class="read-more-arrow">→</span></span>
-                    </div>
-                </a>
+                </div>
+            </a>
 
-                <!-- Dummy Card 3 -->
-                <a href="#" class="window-card">
+            <h2 style="font-family: var(--font-serif); font-size: 1.8rem; margin-bottom: 32px; border-bottom: 1px solid var(--border-color); padding-bottom: 16px;" class="fade-up">Recent Posts</h2>
+            
+            <div class="article-grid">
+                <!-- Card 1 -->
+                <a href="#" class="window-card fade-up">
                     <div class="window-header">
                         <span class="window-dots">○○○</span>
-                        <span class="window-badge" style="color: var(--text-muted); font-size: 0.7rem;">[NEW]</span>
+                        <span class="window-badge" style="opacity: 0.6; font-size: 0.7rem;">[NEW]</span>
                     </div>
-                    <div class="card-img-wrapper" style="aspect-ratio: 4/3;">
-                        <img src="https://images.unsplash.com/photo-1542204165-65bf26472b9b?auto=format&fit=crop&q=80&w=600" alt="Thumbnail">
+                    <div class="card-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&q=80&w=800" alt="Thumbnail">
                     </div>
                     <div class="card-content">
-                        <div class="card-meta"><span class="meta-tag">Cut</span> <span>by 에디터</span></div>
-                        <h3 class="card-title">단편 영화제 수상작 톺아보기</h3>
-                        <p style="color: var(--text-muted); margin-top: auto; font-size: 0.95rem;">올해 영화제를 빛낸 재기발랄한 단편 영화들을 모았습니다.</p>
-                        <span class="read-more" style="margin-top: 16px;">Read More <span class="read-more-arrow">→</span></span>
+                        <div class="card-meta">
+                            <span class="pill-badge" style="border-radius: 4px;">Cut</span> 
+                            <span>by 김유진</span>
+                        </div>
+                        <h3 class="card-title">이 주의 추천 독립영화:<br>새로운 시선의 발견</h3>
+                        <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 24px;">이번 주 우리가 주목해야 할 작품들에 대한 심도 있는 리뷰.</p>
+                        
+                        <div style="display: flex; justify-content: space-between; border-top: 1px solid rgba(0,0,0,0.1); padding-top: 16px; margin-top: auto;">
+                            <span class="read-more" style="margin-top: 0;">Read More <span class="read-more-arrow">→</span></span>
+                            <span style="font-size: 0.8rem; opacity: 0.6;">8 min read</span>
+                        </div>
                     </div>
                 </a>
                 
-                <!-- Dummy Card 4 -->
-                <a href="#" class="window-card">
+                <!-- Card 2 -->
+                <a href="#" class="window-card fade-up delay-1">
                     <div class="window-header">
                         <span class="window-dots">○○○</span>
-                        <span class="window-badge" style="color: var(--text-muted); font-size: 0.7rem;">[ARCHIVE]</span>
+                        <span class="window-badge" style="opacity: 0.6; font-size: 0.7rem;">[NEW]</span>
                     </div>
-                    <div class="card-img-wrapper" style="aspect-ratio: 4/3;">
-                        <img src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&q=80&w=600" alt="Thumbnail">
+                    <div class="card-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1542204165-65bf26472b9b?auto=format&fit=crop&q=80&w=800" alt="Thumbnail">
                     </div>
                     <div class="card-content">
-                        <div class="card-meta"><span class="meta-tag">Cut</span> <span>by 에디터</span></div>
-                        <h3 class="card-title">과거의 명작을 다시 마주하다</h3>
-                        <p style="color: var(--text-muted); margin-top: auto; font-size: 0.95rem;">시간이 흘러도 변치 않는 가치를 지닌 독립영화 아카이브.</p>
-                        <span class="read-more" style="margin-top: 16px;">Read More <span class="read-more-arrow">→</span></span>
+                        <div class="card-meta">
+                            <span class="pill-badge" style="border-radius: 4px;">Cut</span> 
+                            <span>by 배준한</span>
+                        </div>
+                        <h3 class="card-title">작은 영화가 남기는<br>긴 여운에 관하여</h3>
+                        <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 24px;">대자본 없이도 우리의 마음을 울리는 스크린 속 이야기들.</p>
+                        
+                        <div style="display: flex; justify-content: space-between; border-top: 1px solid rgba(0,0,0,0.1); padding-top: 16px; margin-top: auto;">
+                            <span class="read-more" style="margin-top: 0;">Read More <span class="read-more-arrow">→</span></span>
+                            <span style="font-size: 0.8rem; opacity: 0.6;">12 min read</span>
+                        </div>
                     </div>
                 </a>
             </div>
+            
         </div>
+        
+        <aside class="sidebar fade-up">
+            <div class="sidebar-widget">
+                <h3 class="sidebar-widget-title">Explore Topics</h3>
+                <div class="topic-tags">
+                    <a href="#" class="topic-tag">Reviews</a>
+                    <a href="#" class="topic-tag">Interviews</a>
+                    <a href="#" class="topic-tag">Short Films</a>
+                    <a href="#" class="topic-tag">Essays</a>
+                    <a href="#" class="topic-tag">Behind the Scenes</a>
+                    <a href="#" class="topic-tag">Festivals</a>
+                </div>
+            </div>
+            
+            <div class="sidebar-widget">
+                <h3 class="sidebar-widget-title">Never miss an update</h3>
+                <p style="font-size: 0.95rem; opacity: 0.8; margin-bottom: 24px;">Subscribe to get the latest independent film news and articles delivered to your inbox.</p>
+                <div class="input-group" style="flex-direction: column; border: none; background: transparent; border-radius: 0; box-shadow: none;">
+                    <input type="email" placeholder="Enter your email" style="border: 1px solid var(--border-color); border-radius: 4px; margin-bottom: 12px; padding: 12px 16px; width: 100%;">
+                    <button style="border-radius: 4px; padding: 14px; width: 100%;">SUBSCRIBE</button>
+                </div>
+            </div>
+        </aside>
     </section><footer>
         <div class="container">
             <div class="footer-cta fade-up">
