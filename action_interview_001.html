@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
@@ -1215,32 +1215,25 @@ Short Description: "눈물을 흘릴 만큼 무언가를 원해본 적이 있나
             // 1. Text Split Animation for Hero
             const textToSplit = "Are You Ready?";
             const splitContainer = document.getElementById('splitHeroText');
-            
-            // Generate split HTML
-            let splitHTML = "";
-            let wordStart = true;
-            
-            for(let i = 0; i < textToSplit.length; i++) {
-                const char = textToSplit[i];
-                if (char === " ") {
-                    splitHTML += `&nbsp;`;
-                    wordStart = true;
-                } else {
-                    if(wordStart) {
-                        splitHTML += `<span class="char-wrap"><i class="char hero-italic" style="transition-delay: ${0.1 + (i*0.05)}s">${char}</i></span>`;
-                    } else {
-                        splitHTML += `<span class="char-wrap"><span class="char" style="transition-delay: ${0.1 + (i*0.05)}s">${char}</span></span>`;
-                    }
-                    wordStart = false;
+            if (splitContainer) {
+                let splitHTML = ""; 
+                let wordStart = true;
+                for(let i=0; i<textToSplit.length; i++){ 
+                    const char=textToSplit[i]; 
+                    if(char===" ") { 
+                        splitHTML += "&nbsp;"; wordStart=true; 
+                    } else { 
+                        if(wordStart){ 
+                            splitHTML += "<span class='char-wrap'><i class='char hero-italic' style='transition-delay: "+(0.1+(i*0.05))+"s'>"+char+"</i></span>"; 
+                        }else{ 
+                            splitHTML += "<span class='char-wrap'><span class='char' style='transition-delay: "+(0.1+(i*0.05))+"s'>"+char+"</span></span>"; 
+                        } 
+                        wordStart=false; 
+                    } 
                 }
+                splitContainer.innerHTML = splitHTML; 
+                setTimeout(() => { document.getElementById('hero').classList.add('animated'); }, 100);
             }
-            
-            splitContainer.innerHTML = splitHTML;
-            
-            // Trigger animation after slight delay
-            setTimeout(() => {
-                document.getElementById('hero').classList.add('animated');
-            }, 100);
 
             // 2. Intersection Observer for Fade Up components
             const observerOptions = {
@@ -1328,5 +1321,6 @@ Short Description: "눈물을 흘릴 만큼 무언가를 원해본 적이 있나
     </script>
 </body>
 </html>
+
 
 
